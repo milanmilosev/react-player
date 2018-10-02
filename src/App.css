@@ -1,6 +1,9 @@
+html, body {
+  background-color: grey;
+}
+
 .App {
   text-align: center;
-  background-color: #444;
   color: #fff;
 }
 
