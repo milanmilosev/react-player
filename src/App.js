@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-let textColor = "#fff";
 let fakeServerData = {
   user: {
     name: 'Milan',
@@ -84,10 +83,10 @@ class HoursCounter extends Component {
 class Filter extends Component {
   render() {
     return (
-      <div>
-        <img/>
+      <div className="filter">
+        <span>Filter</span>
         <input type="text" onKeyUp={event => {
-          this.props.onTextChange(event.target.value)}}/>Filter
+          this.props.onTextChange(event.target.value)}}/>
       </div>
     );
   }
@@ -128,6 +127,11 @@ class App extends Component {
     }, 2000);
   }
   render() {
+    let playlistToRender = this.state.serverData.user ? this.state.serverData.user.playlists
+      .filter(playlist =>
+        playlist.name.toLowerCase().includes(
+          this.state.filterString.toLowerCase())
+    ) : []
     return (
       <div className="App">
           { this.state.serverData.user ?
@@ -135,8 +139,8 @@ class App extends Component {
             <h1 className="App-title">
               {this.state.serverData.user.name}'s Playlist
             </h1>
-            <PlaylistCounter playlists = {this.state.serverData.user.playlists}/>
-            <HoursCounter playlists = {this.state.serverData.user.playlists} />
+            <PlaylistCounter playlists = {playlistToRender}/>
+            <HoursCounter playlists = {playlistToRender} />
             <Filter onTextChange={text => this.setState({filterString: text})}/>
             { this.state.serverData.user.playlists.filter(playlist => 
               playlist.name.toLowerCase().includes(this.state.filterString.toLowerCase())

@@ -1,10 +1,14 @@
 html, body {
-  background-color: grey;
+  background-color: #f1f1f1;
 }
 
 .App {
   text-align: center;
-  color: #fff;
+  color: #2a2a2a;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: #fff;
+  padding: 2rem;
 }
 
 .App-logo {
@@ -21,6 +25,7 @@ html, body {
 
 .App-title {
   font-size: 1.5em;
+  color: #2a2a2a;
 }
 
 .App-intro {
@@ -36,6 +41,25 @@ h1 {
   color: #f1f1f1;
 }
 
+h3 {
+  text-align: left;
+  font-size: 1rem;
+}
+
 li {
   list-style: none;
+  font-size: .8rem;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+
+.filter {
+  margin: 1rem 0;
+}
+.filter span {
+  margin-right: 1rem;
 }
